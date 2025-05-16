@@ -2,7 +2,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 random() {
-    tr </dev/urandom -dc A-Za-z0-9 | head -c16
+    tr </dev/urandom -dc A-Za-z0-9 | head -c16c16
     echo
 }
 
@@ -82,8 +82,8 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 
 echo "Internal IP = ${IP4}. External sub for IP6 = ${IP6}"
 
-FIRST_PORT=55001
-LAST_PORT=57000
+FIRST_PORT=30000
+LAST_PORT=35000
 
 gen_data >$WORKDIR/data.txt
 gen_ifconfig >$WORKDIR/boot_ifconfig.sh
